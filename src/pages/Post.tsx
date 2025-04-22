@@ -38,16 +38,20 @@ const Post = () => {
   });
   return (
     <div className="space-y-6 p-4">
-      {data?.data.map((post, index) => (
-        <PostCard
-          key={index}
-          title={post.title}
-          content={post.content}
-          image_url={post.image_url}
-        />
-      ))}
+      {Array.isArray(data?.data) ? (
+        data.data.map((post, index) => (
+          <PostCard
+            key={index}
+            title={post.title}
+            content={post.content}
+            image_url={post.image_url}
+          />
+        ))
+      ) : (
+        <p>Loading or failed to load posts.</p>
+      )}
     </div>
-  );
+  );  
 };
 
 export default Post;
