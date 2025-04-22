@@ -63,7 +63,7 @@ import axios from "../utils/AxiosInstance";
 type PostType = {
   title: string;
   content: string;
-  image_url: string;
+  imageUrl: string;
 };
 
 const fetchPostList = async (token: string | null) => {
@@ -73,12 +73,12 @@ const fetchPostList = async (token: string | null) => {
   return response.data; // only return the array of posts
 };
 
-const PostCard = ({ title, content, image_url }: PostType) => {
+const PostCard = ({ title, content, imageUrl }: PostType) => {
   return (
     <div className="bg-white shadow-md rounded-2xl p-4 mb-6 max-w-xl mx-auto">
-      {image_url && (
+      {imageUrl && (
         <img
-          src={image_url}
+          src={imageUrl}
           alt={title}
           className="w-full h-64 object-cover rounded-xl mb-4"
         />
@@ -112,7 +112,7 @@ const Post = () => {
             key={index}
             title={post.title}
             content={post.content}
-            image_url={post.image_url}
+            imageUrl={post.imageUrl}
           />
         ))
       ) : (
